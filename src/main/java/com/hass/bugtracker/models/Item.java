@@ -9,7 +9,7 @@ import java.util.Date;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "GENERATED ALWAYS AS IDENTITY")
+    @Column(columnDefinition = "integer GENERATED ALWAYS AS IDENTITY")
     private Integer id;
     private String title;
     private String description;
