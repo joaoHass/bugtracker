@@ -19,10 +19,10 @@ public class ItemController {
     @Autowired
     public ItemController(ItemService itemService) { _itemService = itemService; }
 
-    @GetMapping("/")
+    @GetMapping
     public List<Item> getItems() { return _itemService.getItems(); }
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<?> createItem(@RequestBody ItemDto itemDto) {
         try {
             _itemService.createItem(itemDto);

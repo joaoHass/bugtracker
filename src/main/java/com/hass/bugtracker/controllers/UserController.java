@@ -19,10 +19,10 @@ public class UserController {
     @Autowired
     public UserController(UserService userService) { _userService = userService; }
 
-    @GetMapping("/")
+    @GetMapping
     public List<User> getUsers() { return _userService.getUsers(); }
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<?> createUser(@RequestBody UserDto userDto) {
         try {
             _userService.createUser(userDto);
