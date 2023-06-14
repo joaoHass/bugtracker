@@ -12,6 +12,7 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "integer GENERATED ALWAYS AS IDENTITY", insertable = false, updatable = false)
     private Integer id;
     private String username;
     private String email;
