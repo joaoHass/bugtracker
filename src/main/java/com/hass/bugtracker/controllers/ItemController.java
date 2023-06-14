@@ -20,7 +20,7 @@ public class ItemController {
     public ItemController(ItemService itemService) { _itemService = itemService; }
 
     @GetMapping
-    public List<Item> getItems() { return _itemService.getItems(); }
+    public List<ItemDto> getItems() { return _itemService.getItems(); }
 
     @PostMapping
     public ResponseEntity<?> createItem(@RequestBody ItemDto itemDto) {

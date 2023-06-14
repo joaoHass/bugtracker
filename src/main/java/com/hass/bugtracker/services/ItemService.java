@@ -6,6 +6,7 @@ import com.hass.bugtracker.models.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,8 +17,25 @@ public class ItemService {
     @Autowired
     public ItemService(ItemDomain item) { _item = item; }
 
-    public List<Item> getItems() {
-        return _item.getItems();
+    public List<ItemDto> getItems() {
+
+        List<Item> items = _item.getItems();
+        List<ItemDto> itemsToReturn = new ArrayList<ItemDto>();
+
+        for (int i = 0; i < items.size(); i++) {
+
+            ItemDto itemToReturn = new ItemDto(
+                    items.get(i).getTitle(),
+                    items.get(i).getDescription(),
+                    items.get(i).getDueDate(),
+                    items.get(i).isCompleted()
+
+            );
+
+            itemsToReturn.add(itemToReturn);
+        }
+
+        return itemsToReturn;
     }
 
     public void createItem(ItemDto itemDto) throws IllegalArgumentException{
