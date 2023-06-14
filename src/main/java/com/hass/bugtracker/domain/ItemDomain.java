@@ -19,4 +19,7 @@ public class ItemDomain {
         return _repository.findAll();
     }
 
+    public void createItem(Item item) {
+        _repository.save(item);
+    }
 }
