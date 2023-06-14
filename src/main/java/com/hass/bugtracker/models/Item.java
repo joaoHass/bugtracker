@@ -10,8 +10,8 @@ import java.util.Date;
 @Table(name = "items")
 public class Item {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "integer GENERATED ALWAYS AS IDENTITY")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "integer GENERATED ALWAYS AS IDENTITY", insertable = false, updatable = false)
     private Integer id;
     private String title;
     private String description;
