@@ -1,7 +1,9 @@
 package com.hass.bugtracker.models;
 
 import jakarta.persistence.*;
+import org.springframework.cglib.core.Local;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -17,7 +19,7 @@ public class Item {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User createdBy;
-    private Date dueDate;
+    private LocalDate dueDate;
 
     public Integer getId() {
         return id;
@@ -51,11 +53,11 @@ public class Item {
         this.createdBy = createdBy;
     }
 
-    public Date getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 
