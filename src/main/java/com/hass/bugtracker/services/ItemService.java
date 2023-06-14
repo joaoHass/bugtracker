@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ItemServices {
+public class ItemService {
 
     private final ItemDomain _item;
 
     @Autowired
-    public ItemServices(ItemDomain item) { _item = item; }
+    public ItemService(ItemDomain item) { _item = item; }
 
     public List<Item> getItems() {
         return _item.getItems();

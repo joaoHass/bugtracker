@@ -2,12 +2,11 @@ package com.hass.bugtracker.controllers;
 
 import com.hass.bugtracker.dto.ItemDto;
 import com.hass.bugtracker.models.Item;
-import com.hass.bugtracker.services.ItemServices;
+import com.hass.bugtracker.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.function.EntityResponse;
 
 import java.util.List;
 
@@ -15,18 +14,18 @@ import java.util.List;
 @RequestMapping(path = "api/v1/items")
 public class ItemController {
 
-    private final ItemServices _itemServices;
+    private final ItemService _itemService;
 
     @Autowired
-    public ItemController(ItemServices itemServices) { _itemServices = itemServices; }
+    public ItemController(ItemService itemService) { _itemService = itemService; }
 
     @GetMapping("/")
-    public List<Item> getItems() { return _itemServices.getItems(); }
+    public List<Item> getItems() { return _itemService.getItems(); }
 
     @PostMapping("/")
     public ResponseEntity<?> createItem(@RequestBody ItemDto itemDto) {
         try {
-            _itemServices.createItem(itemDto);
+            _itemService.createItem(itemDto);
         } catch (IllegalArgumentException ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
