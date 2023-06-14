@@ -20,6 +20,7 @@ public class Item {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User createdBy;
     private LocalDate dueDate;
+    private boolean isCompleted;
 
     public Integer getId() {
         return id;
@@ -69,5 +70,4 @@ public class Item {
         isCompleted = completed;
     }
 
-    private boolean isCompleted;
 }
