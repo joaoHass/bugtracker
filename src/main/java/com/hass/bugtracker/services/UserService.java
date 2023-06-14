@@ -13,13 +13,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServices implements UserDetailsService {
+public class UserService implements UserDetailsService {
 
     private final UserDomain _domain;
     private final PasswordEncoder _encoder;
 
     @Autowired
-    public UserServices(UserDomain domain, PasswordEncoder encoder) {
+    public UserService(UserDomain domain, PasswordEncoder encoder) {
         _domain = domain;
         _encoder = encoder;
     }

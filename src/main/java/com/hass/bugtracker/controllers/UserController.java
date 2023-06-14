@@ -2,7 +2,7 @@ package com.hass.bugtracker.controllers;
 
 import com.hass.bugtracker.dto.UserDto;
 import com.hass.bugtracker.models.User;
-import com.hass.bugtracker.services.UserServices;
+import com.hass.bugtracker.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,18 +14,18 @@ import java.util.List;
 @RequestMapping(path = "api/v1/users")
 public class UserController {
 
-    private final UserServices _userServices;
+    private final UserService _userService;
 
     @Autowired
-    public UserController(UserServices userServices) { _userServices = userServices; }
+    public UserController(UserService userService) { _userService = userService; }
 
     @GetMapping("/")
-    public List<User> getUsers() { return _userServices.getUsers(); }
+    public List<User> getUsers() { return _userService.getUsers(); }
 
     @PostMapping("/")
     public ResponseEntity<?> createUser(@RequestBody UserDto userDto) {
         try {
-            _userServices.createUser(userDto);
+            _userService.createUser(userDto);
         } catch (IllegalArgumentException ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
         }
