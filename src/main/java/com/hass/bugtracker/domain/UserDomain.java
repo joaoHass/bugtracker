@@ -19,4 +19,8 @@ public class UserDomain {
     public List<User> getUsers() { return _repository.findAll(); }
 
     public Optional<User> getUserByEmail(String email) { return _repository.findUserByEmail(email); }
+
+    public void save(User user) {
+        _repository.save(user);
+    }
 }
