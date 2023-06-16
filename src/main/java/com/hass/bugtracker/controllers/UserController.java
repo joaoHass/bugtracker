@@ -1,6 +1,7 @@
 package com.hass.bugtracker.controllers;
 
 import com.hass.bugtracker.dto.NewUserDto;
+import com.hass.bugtracker.dto.UserInfoDto;
 import com.hass.bugtracker.models.User;
 import com.hass.bugtracker.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class UserController {
     public UserController(UserService userService) { _userService = userService; }
 
     @GetMapping
-    public List<User> getUsers() { return _userService.getUsers(); }
+    public List<UserInfoDto> getUsers() { return _userService.getUsers(); }
 
     @PostMapping
     public ResponseEntity<?> createUser(@RequestBody NewUserDto newUserDto) {
