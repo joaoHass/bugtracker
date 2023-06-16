@@ -1,6 +1,6 @@
 package com.hass.bugtracker.controllers;
 
-import com.hass.bugtracker.dto.UserDto;
+import com.hass.bugtracker.dto.NewUserDto;
 import com.hass.bugtracker.models.User;
 import com.hass.bugtracker.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +23,14 @@ public class UserController {
     public List<User> getUsers() { return _userService.getUsers(); }
 
     @PostMapping
-    public ResponseEntity<?> createUser(@RequestBody UserDto userDto) {
+    public ResponseEntity<?> createUser(@RequestBody NewUserDto newUserDto) {
         try {
-            _userService.createUser(userDto);
+            _userService.createUser(newUserDto);
         } catch (IllegalArgumentException ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
         }
 
-        return new ResponseEntity<>(String.format("User %s was created successfully!", userDto.username()), HttpStatus.OK);
+        return new ResponseEntity<>(String.format("User %s was created successfully!", newUserDto.username()), HttpStatus.OK);
     }
 
 }

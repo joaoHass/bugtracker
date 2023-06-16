@@ -1,7 +1,7 @@
 package com.hass.bugtracker.services;
 
 import com.hass.bugtracker.domain.UserDomain;
-import com.hass.bugtracker.dto.UserDto;
+import com.hass.bugtracker.dto.NewUserDto;
 import com.hass.bugtracker.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -33,14 +33,14 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException(String.format("User with email %s does not exist!", email)));
     }
 
-    public void createUser(UserDto userDto) throws IllegalArgumentException {
-        if (_domain.getUserByEmail(userDto.email()).isPresent())
-            throw new IllegalArgumentException(String.format("The e-mail %s is already taken", userDto.email()));
+    public void createUser(NewUserDto newUserDto) throws IllegalArgumentException {
+        if (_domain.getUserByEmail(newUserDto.email()).isPresent())
+            throw new IllegalArgumentException(String.format("The e-mail %s is already taken", newUserDto.email()));
 
         User user = new User();
-        user.setUsername(userDto.username());
-        user.setEmail(userDto.email());
-        user.setPassword(_encoder.encode(userDto.password()));
+        user.setUsername(newUserDto.username());
+        user.setEmail(newUserDto.email());
+        user.setPassword(_encoder.encode(newUserDto.password()));
 
         _domain.save(user);
     }
