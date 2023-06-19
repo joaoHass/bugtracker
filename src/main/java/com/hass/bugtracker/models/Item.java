@@ -1,10 +1,8 @@
 package com.hass.bugtracker.models;
 
 import jakarta.persistence.*;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "items")
