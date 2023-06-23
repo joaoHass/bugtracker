@@ -5,9 +5,6 @@ import com.hass.bugtracker.dto.NewUserDto;
 import com.hass.bugtracker.dto.UserInfoDto;
 import com.hass.bugtracker.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService {
 
     private final UserDomain _domain;
     private final PasswordEncoder _encoder;
@@ -43,13 +40,6 @@ public class UserService implements UserDetailsService {
         }
 
         return itemsToReturn;
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-
-        return _domain.getUserByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException(String.format("User with email %s does not exist!", email)));
     }
 
     public void createUser(NewUserDto newUserDto) throws IllegalArgumentException {
