@@ -1,11 +1,11 @@
 package com.hass.bugtracker.controllers;
 
 import com.hass.bugtracker.dto.ItemDto;
-import com.hass.bugtracker.models.Item;
 import com.hass.bugtracker.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,9 +23,9 @@ public class ItemController {
     public List<ItemDto> getItems() { return _itemService.getItems(); }
 
     @PostMapping
-    public ResponseEntity<?> createItem(@RequestBody ItemDto itemDto) {
+    public ResponseEntity<?> createItem(@RequestBody ItemDto itemDto, Authentication authentication) {
         try {
-            _itemService.createItem(itemDto);
+            _itemService.createItem(itemDto, authentication);
         } catch (IllegalArgumentException ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
