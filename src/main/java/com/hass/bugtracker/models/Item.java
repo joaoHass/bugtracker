@@ -21,8 +21,8 @@ public class Item {
     private String title;
     private String description;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     private User createdBy;
     private LocalDate dueDate;
     private boolean isCompleted;
