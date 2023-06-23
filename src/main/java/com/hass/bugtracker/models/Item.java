@@ -7,9 +7,16 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "items")
 public class Item {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "integer GENERATED ALWAYS AS IDENTITY", insertable = false, updatable = false)
+    @GeneratedValue (
+            strategy = GenerationType.SEQUENCE,
+            generator = "users_sequence"
+    )
+    @SequenceGenerator (
+            name = "users_sequence",
+            sequenceName = "users_sequence"
+    )
     private Integer id;
     private String title;
     private String description;
