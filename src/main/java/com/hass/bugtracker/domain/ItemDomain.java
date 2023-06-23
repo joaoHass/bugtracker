@@ -22,4 +22,11 @@ public class ItemDomain {
     public void createItem(Item item) {
         _repository.save(item);
     }
+
+    public void deleteItem(Integer itemId) throws IllegalArgumentException{
+        if (_repository.findById(itemId).isEmpty())
+            throw new IllegalArgumentException(String.format("The item with the id %s does not exist!", itemId));
+
+        _repository.deleteById(itemId);
+    }
 }
