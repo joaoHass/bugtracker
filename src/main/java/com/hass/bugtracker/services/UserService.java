@@ -43,9 +43,6 @@ public class UserService {
     }
 
     public void createUser(NewUserDto newUserDto) throws IllegalArgumentException {
-        if (_domain.getUserByEmail(newUserDto.email()).isPresent())
-            throw new IllegalArgumentException(String.format("The e-mail %s is already taken", newUserDto.email()));
-
         User user = new User();
         user.setUsername(newUserDto.username());
         user.setEmail(newUserDto.email());
@@ -54,4 +51,16 @@ public class UserService {
         _domain.save(user);
     }
 
+    public UserInfoDto findById(Integer userId) throws NoSuchElementException {
+        Optional<User> user = _domain.findById(userId);
+
+        if (user.isEmpty())
+            throw new NoSuchElementException(String.format("User with id %s does not exist!", userId));
+
+        return new UserInfoDto(
+                user.get().getId(),
+                user.get().getUsername(),
+                user.get().getEmail()
+        );
+    }
 }
