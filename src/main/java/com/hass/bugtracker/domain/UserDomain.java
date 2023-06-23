@@ -23,4 +23,8 @@ public class UserDomain {
     public void save(User user) {
         _repository.save(user);
     }
+
+    public Optional<User> findById(Integer userId)  {
+        return _repository.findById(userId);
+    }
 }
