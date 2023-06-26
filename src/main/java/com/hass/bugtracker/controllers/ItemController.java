@@ -38,7 +38,7 @@ public class ItemController {
         try {
             _itemService.deleteItem(itemId);
         } catch (IllegalArgumentException ex) {
-            return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
 
         return new ResponseEntity<>("The item was deleted successfully!", HttpStatus.OK);
