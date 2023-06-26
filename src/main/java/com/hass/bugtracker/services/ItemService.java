@@ -29,13 +29,14 @@ public class ItemService {
         List<Item> items = _item.getItems();
         List<ItemDto> itemsToReturn = new ArrayList<ItemDto>();
 
-        for (int i = 0; i < items.size(); i++) {
+        for (Item item : items) {
 
             ItemDto itemToReturn = new ItemDto(
-                    items.get(i).getTitle(),
-                    items.get(i).getDescription(),
-                    items.get(i).getDueDate(),
-                    items.get(i).isCompleted()
+                    item.getTitle(),
+                    item.getDescription(),
+                    item.getDueDate(),
+                    item.getCreatedBy().getId(),
+                    item.isCompleted()
 
             );
 
