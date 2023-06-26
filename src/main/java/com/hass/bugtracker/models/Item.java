@@ -11,11 +11,11 @@ public class Item {
     @Id
     @GeneratedValue (
             strategy = GenerationType.SEQUENCE,
-            generator = "users_sequence"
+            generator = "items_sequence"
     )
     @SequenceGenerator (
-            name = "users_sequence",
-            sequenceName = "users_sequence"
+            name = "items_sequence",
+            sequenceName = "items_sequence"
     )
     private Integer id;
     private String title;
