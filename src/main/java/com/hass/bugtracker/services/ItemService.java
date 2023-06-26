@@ -62,5 +62,7 @@ public class ItemService {
         _item.createItem(item);
     }
 
+    public void deleteItem(Integer itemId) throws IllegalArgumentException {
+        _item.deleteItem(itemId);
     }
 }
