@@ -33,4 +33,14 @@ public class ItemController {
         return new ResponseEntity<>("The item was created successfully!", HttpStatus.OK);
     }
 
+    @DeleteMapping("/{itemId}")
+    public ResponseEntity<?> deleteItem(@PathVariable Integer itemId) {
+        try {
+            _itemService.deleteItem(itemId);
+        } catch (IllegalArgumentException ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<>("The item was deleted successfully!", HttpStatus.OK);
+    }
 }
