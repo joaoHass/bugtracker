@@ -47,9 +47,6 @@ public class ItemService {
     }
 
     public void createItem(ItemDto itemDto, Authentication authentication) throws IllegalArgumentException {
-        if (itemDto.title() == null)
-            throw new IllegalArgumentException("The item does not contain a title!");
-
         User loggedUser = _user.findById(((User)authentication.getPrincipal()).getId()).get();
 
         Item item = new Item();

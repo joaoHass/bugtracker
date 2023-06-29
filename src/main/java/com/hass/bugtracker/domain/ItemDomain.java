@@ -20,6 +20,9 @@ public class ItemDomain {
     }
 
     public void createItem(Item item) {
+        if (item.getTitle() == null)
+            throw new IllegalArgumentException("The item does not contain a title!");
+
         _repository.save(item);
     }
 
