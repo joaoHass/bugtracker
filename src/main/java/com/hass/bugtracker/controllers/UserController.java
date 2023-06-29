@@ -23,6 +23,17 @@ public class UserController {
     @GetMapping
     public List<UserInfoDto> getUsers() { return _userService.getUsers(); }
 
+    @GetMapping("/{userId}")
+    public ResponseEntity<?> getUser(@PathVariable Integer userId) {
+        try {
+            UserInfoDto user = _userService.findById(userId);
+
+            return new ResponseEntity<UserInfoDto>(user, HttpStatus.OK);
+        } catch (IllegalArgumentException ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
     @PostMapping
     public ResponseEntity<?> createUser(@RequestBody NewUserDto newUserDto) {
         try {
