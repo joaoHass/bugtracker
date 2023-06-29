@@ -1,5 +1,6 @@
 package com.hass.bugtracker.domain;
 
+import com.hass.bugtracker.dto.UpdateItemDto;
 import com.hass.bugtracker.models.Item;
 import com.hass.bugtracker.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,24 @@ public class ItemDomain {
             throw new IllegalArgumentException(String.format("The item with the id %s does not exist!", itemId));
 
         _repository.deleteById(itemId);
+    }
+
+    public void updateItem(UpdateItemDto itemDto) {
+        if (itemDto.id() == null)
+            throw new IllegalArgumentException("Please provide an item id");
+
+        Item item = _repository.findById(itemDto.id())
+                .orElseThrow(() -> new IllegalArgumentException(String.format("An item with id %s does not exist!", itemDto.id())));
+
+        if (itemDto.title() != null)
+            item.setTitle(itemDto.title());
+
+        if (itemDto.description() != null)
+            item.setDescription(itemDto.description());
+
+        if (itemDto.dueDate() != null)
+            item.setDueDate(itemDto.dueDate());
+
+        item.setCompleted(itemDto.isCompleted());
     }
 }
