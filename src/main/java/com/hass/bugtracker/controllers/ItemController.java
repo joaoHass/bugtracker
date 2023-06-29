@@ -1,6 +1,7 @@
 package com.hass.bugtracker.controllers;
 
 import com.hass.bugtracker.dto.ItemDto;
+import com.hass.bugtracker.dto.UpdateItemDto;
 import com.hass.bugtracker.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
