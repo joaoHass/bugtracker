@@ -3,6 +3,7 @@ package com.hass.bugtracker.services;
 import com.hass.bugtracker.domain.ItemDomain;
 import com.hass.bugtracker.domain.UserDomain;
 import com.hass.bugtracker.dto.ItemDto;
+import com.hass.bugtracker.dto.UpdateItemDto;
 import com.hass.bugtracker.models.Item;
 import com.hass.bugtracker.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,10 @@ public class ItemService {
         }
 
         return itemsToReturn;
+    }
+
+    public void updateItem(UpdateItemDto itemDto) throws IllegalArgumentException {
+        _item.updateItem(itemDto);
     }
 
     public void createItem(ItemDto itemDto, Authentication authentication) throws IllegalArgumentException {
