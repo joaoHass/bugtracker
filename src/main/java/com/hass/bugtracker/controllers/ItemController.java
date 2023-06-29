@@ -33,6 +33,17 @@ public class ItemController {
         return new ResponseEntity<>("The item was created successfully!", HttpStatus.OK);
     }
 
+    @PostMapping("/{itemId}")
+    public ResponseEntity<?> updateItem(@RequestParam Integer itemId, @RequestBody UpdateItemDto itemDto) {
+        try {
+            _itemService.updateItem(itemDto);
+        } catch(IllegalArgumentException ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<>("The item was updated successfully!", HttpStatus.OK);
+    }
+
     @DeleteMapping("/{itemId}")
     public ResponseEntity<?> deleteItem(@PathVariable Integer itemId) {
         try {
