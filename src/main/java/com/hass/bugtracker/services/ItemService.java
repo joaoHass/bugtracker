@@ -38,7 +38,6 @@ public class ItemService {
                     item.getDueDate(),
                     item.getCreatedBy().getId(),
                     item.isCompleted()
-
             );
 
             itemsToReturn.add(itemToReturn);
