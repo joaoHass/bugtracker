@@ -35,7 +35,7 @@ public class ItemController {
     }
 
     @PostMapping("/{itemId}")
-    public ResponseEntity<?> updateItem(@RequestParam Integer itemId, @RequestBody UpdateItemDto itemDto) {
+    public ResponseEntity<?> updateItem(@RequestBody UpdateItemDto itemDto) {
         try {
             _itemService.updateItem(itemDto);
         } catch(IllegalArgumentException ex) {
