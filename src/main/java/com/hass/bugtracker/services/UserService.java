@@ -44,6 +44,10 @@ public class UserService {
         return itemsToReturn;
     }
 
+    public void deleteUser(Integer userId) {
+        _domain.delete(userId);
+    }
+
     public void createUser(NewUserDto newUserDto) throws IllegalArgumentException {
         User user = new User();
         user.setUsername(newUserDto.username());
