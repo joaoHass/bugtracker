@@ -34,6 +34,18 @@ public class UserController {
         }
     }
 
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<?> deleteUser(@PathVariable Integer userId) {
+        try {
+            _userService.deleteUser(userId);
+
+            return new ResponseEntity<>(String.format("The user %s was deleted successfully!", userId), HttpStatus.OK);
+        } catch (IllegalArgumentException ex) {
+
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
     @PostMapping
     public ResponseEntity<?> createUser(@RequestBody NewUserDto newUserDto) {
         try {
