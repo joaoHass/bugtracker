@@ -36,6 +36,13 @@ public class UserDomain {
         _repository.save(user);
     }
 
+    public void delete(Integer id) throws IllegalArgumentException {
+        if (findById(id).isEmpty())
+            throw new IllegalArgumentException(String.format("A user with id %s does not exist", id));
+
+        _repository.deleteById(id);
+    }
+
     public Optional<User> findById(Integer userId)  {
         return _repository.findById(userId);
     }
