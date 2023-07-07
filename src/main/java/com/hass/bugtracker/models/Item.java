@@ -3,6 +3,7 @@ package com.hass.bugtracker.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "items")
@@ -24,6 +25,10 @@ public class Item {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User createdBy;
+
+    @ManyToMany(mappedBy = "assignedItems")
+    private List<User> assignedTo;
+
     private LocalDate dueDate;
     private boolean isCompleted;
 

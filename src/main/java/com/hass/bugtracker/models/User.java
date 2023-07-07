@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -23,6 +24,10 @@ public class User implements UserDetails {
     private String username;
     private String email;
     private String password;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "assigned_items_to_user", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="item_id"))
+    private List<Item> assignedItems;
 
     public Integer getId() {
         return id;
