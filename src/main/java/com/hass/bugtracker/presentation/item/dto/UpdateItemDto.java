@@ -1,4 +1,4 @@
-package com.hass.bugtracker.dto;
+package com.hass.bugtracker.presentation.item.dto;
 
 import java.time.LocalDate;
 

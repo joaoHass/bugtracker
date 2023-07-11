@@ -1,9 +1,7 @@
-package com.hass.bugtracker.controllers;
+package com.hass.bugtracker.presentation.user;
 
-import com.hass.bugtracker.dto.NewUserDto;
-import com.hass.bugtracker.dto.UserInfoDto;
-import com.hass.bugtracker.models.User;
-import com.hass.bugtracker.services.UserService;
+import com.hass.bugtracker.presentation.user.dto.NewUserDto;
+import com.hass.bugtracker.presentation.user.dto.UserInfoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

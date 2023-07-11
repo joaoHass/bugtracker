@@ -1,9 +1,9 @@
-package com.hass.bugtracker.services;
+package com.hass.bugtracker.presentation.user;
 
-import com.hass.bugtracker.domain.UserDomain;
-import com.hass.bugtracker.dto.NewUserDto;
-import com.hass.bugtracker.dto.UserInfoDto;
-import com.hass.bugtracker.models.User;
+import com.hass.bugtracker.domain.user.UserDomain;
+import com.hass.bugtracker.domain.user.User;
+import com.hass.bugtracker.presentation.user.dto.NewUserDto;
+import com.hass.bugtracker.presentation.user.dto.UserInfoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

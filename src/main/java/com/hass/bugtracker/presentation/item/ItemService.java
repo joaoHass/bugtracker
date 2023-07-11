@@ -1,11 +1,11 @@
-package com.hass.bugtracker.services;
+package com.hass.bugtracker.presentation.item;
 
-import com.hass.bugtracker.domain.ItemDomain;
-import com.hass.bugtracker.domain.UserDomain;
-import com.hass.bugtracker.dto.ItemDto;
-import com.hass.bugtracker.dto.UpdateItemDto;
-import com.hass.bugtracker.models.Item;
-import com.hass.bugtracker.models.User;
+import com.hass.bugtracker.domain.item.ItemDomain;
+import com.hass.bugtracker.domain.user.UserDomain;
+import com.hass.bugtracker.domain.item.Item;
+import com.hass.bugtracker.domain.user.User;
+import com.hass.bugtracker.presentation.item.dto.ItemDto;
+import com.hass.bugtracker.presentation.item.dto.UpdateItemDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;

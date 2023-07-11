@@ -1,8 +1,7 @@
-package com.hass.bugtracker.controllers;
+package com.hass.bugtracker.presentation.item;
 
-import com.hass.bugtracker.dto.ItemDto;
-import com.hass.bugtracker.dto.UpdateItemDto;
-import com.hass.bugtracker.services.ItemService;
+import com.hass.bugtracker.presentation.item.dto.ItemDto;
+import com.hass.bugtracker.presentation.item.dto.UpdateItemDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

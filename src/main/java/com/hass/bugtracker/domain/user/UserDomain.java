@@ -1,6 +1,5 @@
-package com.hass.bugtracker.domain;
+package com.hass.bugtracker.domain.user;
 
-import com.hass.bugtracker.models.User;
 import com.hass.bugtracker.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

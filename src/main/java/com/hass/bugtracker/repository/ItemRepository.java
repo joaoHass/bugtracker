@@ -1,10 +1,9 @@
 package com.hass.bugtracker.repository;
 
-import com.hass.bugtracker.models.Item;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.hass.bugtracker.domain.item.IITemRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ItemRepository extends JpaRepository<Item, Integer> {
+public interface ItemRepository extends IITemRepository {
 
 }

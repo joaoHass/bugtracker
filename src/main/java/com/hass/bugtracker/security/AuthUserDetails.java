@@ -1,6 +1,6 @@
 package com.hass.bugtracker.security;
 
-import com.hass.bugtracker.domain.UserDomain;
+import com.hass.bugtracker.domain.user.UserDomain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;

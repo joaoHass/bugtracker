@@ -1,7 +1,6 @@
-package com.hass.bugtracker.domain;
+package com.hass.bugtracker.domain.item;
 
-import com.hass.bugtracker.dto.UpdateItemDto;
-import com.hass.bugtracker.models.Item;
+import com.hass.bugtracker.presentation.item.dto.UpdateItemDto;
 import com.hass.bugtracker.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

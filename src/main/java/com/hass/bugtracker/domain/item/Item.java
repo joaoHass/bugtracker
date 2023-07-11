@@ -1,4 +1,4 @@
-package com.hass.bugtracker.models;
+package com.hass.bugtracker.domain.item;
 
 import jakarta.persistence.*;
 

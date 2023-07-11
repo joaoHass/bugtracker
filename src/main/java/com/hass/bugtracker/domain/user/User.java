@@ -1,4 +1,4 @@
-package com.hass.bugtracker.models;
+package com.hass.bugtracker.domain.user;
 
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
